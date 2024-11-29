@@ -136,17 +136,18 @@
     }
 
     @media screen and (max-width: 1920px) {
-      .img {
+      img {
         width: 40%;
         height: 2%;
-        margin: -25em 45em;
+        /* margin: -25em 45em; */
         margin-top: 8%;
       }
 
       .login,
       .register {
         margin-left: 8%;
-        margin-top: -5%;
+        margin-left: 38%;
+        margin-top: 12%;
       }
 
       .forgotpass span {
@@ -167,14 +168,14 @@
     }
 
     @media screen and (max-width: 970px) {
-      .img {
+      img {
         margin: 6em 25em;
         width: 70%;
       }
     }
 
     @media screen and (max-width: 720px) {
-      .img {
+      img {
         margin: 0;
         width: 80%;
         height: 40%;
@@ -187,7 +188,7 @@
     }
 
     @media screen and (max-width: 575px) {
-      .img {
+      img {
         width: 50%;
         height: 42%;
         padding-bottom: 20%;
@@ -195,7 +196,7 @@
     }
 
     @media screen and (max-width: 484px) {
-      .img {
+      img {
         width: 140%;
         margin-top: 15%;
       }
@@ -221,7 +222,7 @@
         margin-top: 0;
       }
 
-      .img {
+      img {
         max-width: 80%;
         height:10rem;
         margin-left: 30px;
@@ -375,10 +376,7 @@
   </style>
   <title>Portal - Login</title>
 </head>
-<body>
-  <div class="img">
-  <img src="static/bg.jpg" alt="" />
-</div>
+<body style="">
   <div class="login">
     <div class="messages">
       {% for message in messages %}
