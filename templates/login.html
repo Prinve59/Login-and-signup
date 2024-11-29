@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon-enhanced.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@600&display=swap");
+
+    :root {
+      --main-icon-color: #5328af;
+      --main-bg-color: #f3f3fb;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: var(--main-bg-color);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img {
+      height: 400px;
+    }
+
+    .login,
+    .register {
+      max-width: 35rem;
+      width: 100%;
+    }
+
+    .container {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #load {
+      margin: auto;
+      width: 100%;
+      height: -webkit-fill-available;
+      position: fixed;
+      background: #fff url(/images/Spin-Preloader-1.jpg) no-repeat center;
+      z-index: 9999999;
+    }
+
+    .welcome h1 {
+      font-family: "Prompt", sans-serif;
+      font-weight: 500;
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .welcome span {
+      font-family: "Poppins";
+      color: #8e8d8d;
+      font-size: small;
+    }
+
+    .inputs {
+      margin: 2.2em 0;
+      margin-bottom: 0;
+    }
+
+    .inputs span {
+      font-family: "Poppins";
+      font-weight: 600;
+      font-size: small;
+    }
+
+    .inputbox {
+      width: 300px;
+      margin: 0.8em 0;
+      display: inline-block;
+      box-sizing: content-box;
+      padding: 8px 20px;
+      border: 1px solid #c7c7c7;
+      border-radius: 10px;
+      font: normal 16px / normal "Poppins";
+      color: #000;
+      text-overflow: clip;
+    }
+
+    .signin {
+      margin: 0.5em 0;
+      width: 320px;
+      display: inline-block;
+      box-sizing: content-box;
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font: normal 16px / normal "Poppins";
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      background: var(--main-icon-color);
+      background: linear-gradient(0deg, rgba(96, 9, 240, 1) 0%, var(--main-icon-color) 100%);
+      border: none;
+    }
+
+    .signin:hover {
+      box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+        -4px -4px 6px 0 rgba(116, 125, 136, 0.5),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .back-1 {
+      margin-top: -0.6%;
+    }
+
+    .signupline {
+      font-family: "Poppins";
+      color: #8e8d8d;
+      font-size: small;
+      padding: 1em 5em;
+    }
+
+    .signupbutton,
+    .signinbutton {
+      font-family: "Poppins";
+      font-weight: 650;
+      font-size: small;
+      color: var(--main-icon-color);
+      cursor: pointer;
+    }
+
+    .register {
+      display: none;
+    }
+
+    @media screen and (max-width: 1920px) {
+      .img {
+        width: 40%;
+        height: 2%;
+        margin: -25em 45em;
+        margin-top: 8%;
+      }
+
+      .login,
+      .register {
+        margin-left: 8%;
+        margin-top: -5%;
+      }
+
+      .forgotpass span {
+        margin-left: 230px;
+      }
+
+      .back {
+        margin-top: -3.5%;
+      }
+
+      .welcome {
+        margin-left: 8%;
+      }
+
+      .welcome span {
+        margin-left: 10%;
+      }
+    }
+
+    @media screen and (max-width: 970px) {
+      .img {
+        margin: 6em 25em;
+        width: 70%;
+      }
+    }
+
+    @media screen and (max-width: 720px) {
+      .img {
+        margin: 0;
+        width: 80%;
+        height: 40%;
+        padding-bottom: 12%;
+      }
+
+      .login {
+        margin-top: 8%;
+      }
+    }
+
+    @media screen and (max-width: 575px) {
+      .img {
+        width: 50%;
+        height: 42%;
+        padding-bottom: 20%;
+      }
+    }
+
+    @media screen and (max-width: 484px) {
+      .img {
+        width: 140%;
+        margin-top: 15%;
+      }
+
+      .login {
+        margin-top: 45%;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .welcome {
+        text-align: center;
+        margin-top: -20%;
+        margin-left: 15px;
+      }
+
+      .welcome h1 {
+        font-size: 1.5em;
+        margin-left: auto;
+        margin-right: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+      }
+
+      .img {
+        max-width: 80%;
+        height:10rem;
+        margin-left: 30px;
+        margin-right: auto;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+      }
+
+      .login {
+        margin-top: -6%;
+        margin-left: 10px;
+      }
+
+      .inputs {
+        margin: 2.2em 0;
+        margin-bottom: 0;
+      }
+
+      .inputs span {
+        margin-left: 15px;
+      }
+
+      .inputbox {
+        width: 270px;
+        margin-left: 15px;
+      }
+
+      .forgotpass span {
+        margin-left: 200px;
+      }
+
+      .back {
+        margin-top: -5%;
+        margin-left: 15px;
+      }
+
+      .signin {
+        width: 300px;
+        margin-left: 12px;
+        margin-top: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .signupline {
+        padding-top: 5px;
+      }
+
+      .welcome span {
+        margin-right: 15%;
+      }
+    }
+    .messages{
+      position: absolute;
+      top: 2.5rem;
+      z-index: 10;
+      border-radius: 5px;
+      animation: messages 6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    @keyframes messages {
+      0%{
+        transform: translateY(-1.5rem);
+        opacity: 0;
+      }
+      9.5%{
+        transform: translateY(.5rem);
+        opacity: 1;
+      }
+      95%{
+        transform: translateY(0rem);
+      }
+      100%{
+        opacity: 0;
+      }
+    }
+    
+    .message.success {
+      font-family: "Cocomat-Bold", sans-serif;
+      background-color: #4caf4f; 
+      color: white; 
+      padding: 15px; 
+      border: 1px solid #45a049;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
+    
+    
+    .message.error {
+      font-family: "Cocomat-Bold", sans-serif;
+      background-color: #f44336; 
+      color: white; 
+      padding: 14px; 
+      border: 1px solid #e53935; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+      margin-bottom: 10px; 
+    }
+    
+    
+    .message.info {
+      font-family: "Cocomat-Bold", sans-serif;
+      background-color: #2195f3; 
+      color: white; 
+      padding: 15px; 
+      border: 1px solid #1976d2;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+      margin-bottom: 10px; 
+    }
+    
+    .message.warning {
+      font-family: "Cocomat-Bold", sans-serif;
+      background-color: #ff9900ea; 
+      color: white; 
+      padding: 15px; 
+      border: 1px solid #fb8c00;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px; 
+    }
+    
+    
+    .message {
+      font-weight: bold;
+      text-align: center; 
+      border-radius: 5px; 
+      font-family: "OpenSauce-Regular";
+    }
+    /* Basic Violet Button */
+.button {
+  background-color: #8a2be2; /* Violet color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+/* Hover effect */
+.button:hover {
+  background-color: #7a1fe1; /* Slightly darker violet */
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Focus effect */
+.button:focus {
+  outline: 3px solid #dabfff; /* Highlight outline */
+  outline-offset: 2px; /* Space between button and outline */
+}
+
+  </style>
+  <title>Portal - Login</title>
+</head>
+<body>
+  <div class="img">
+  <img src="static/bg.jpg" alt="" />
+</div>
+  <div class="login">
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      </div>
+    <div class="welcome">
+      <h1 class="titletext">Welcome Back &#x1F917</h1>
+      <span>Please enter your details.</span>
+    </div>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="inputs">
+        <span>Email<br /></span>
+        <input class="inputbox" placeholder="Enter your email" id="loginEmail" name="email"/><br />
+        <span>Password<br /></span>
+        <input type="password" class="inputbox" placeholder="••••••••" id="loginPassword" name="password"/>
+      </div>
+      <div class="forgotpass">
+        <span>Forgot Password</span>
+      </div>
+        <button class="button">Signin</button>
+    </form>
+    <div class="signupline">
+      <span>Don't have an account?</span>
+      <span class="signupbutton "> Sign up</span>
+    </div>
+  </div>
+
+  <div class="register">
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      </div>
+    <div class="welcome">
+      <h1 class="titletext">Create an account</h1>
+      <span>Let's get started.</span>
+    </div>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="inputs">
+        <span>Username<br /></span>
+        <input class="inputbox" placeholder="Enter your username" id="signupUsername" name="username"/><br />
+        <span>Email<br /></span>
+        <input class="inputbox" placeholder="Enter your email" id="signupEmail" name="signup_email"/><br />
+        <span>Password<br /></span>
+        <input type="password" class="inputbox" placeholder="••••••••" id="signupPassword" name="signup_p"/>
+      </div>
+        <button class="button">Signup</button>
+    </form>
+    <div class="signupline">
+      <span>Already have an account?</span>
+      <span class="signinbutton"> Sign in</span>
+    </div>
+  </div>
+
+  <script>
+    const signin_btn = document.querySelector(".signinbutton");
+    const signup_btn = document.querySelector(".signupbutton");
+    const register = document.querySelector(".register");
+    const login = document.querySelector(".login");
+
+    signup_btn.addEventListener("click", () => {
+      register.style.display = "block";
+      login.style.display = "none";
+    });
+
+    signin_btn.addEventListener("click", () => {
+      register.style.display = "none";
+      login.style.display = "block";
+    });
+  </script>
+</body>
+</html>
