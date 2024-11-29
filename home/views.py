@@ -23,7 +23,7 @@ def login_view(request):
             user.set_password(password)  # Hash the password
             user.save()
             messages.success(request, "Account created successfully! Please log in.")
-            return redirect('https://tranquil-otter-dd17ea.netlify.app/')
+            return redirect('https://yourinnerpeaceportal.netlify.app/')
 
         # Handle Login
         else:
@@ -37,7 +37,7 @@ def login_view(request):
             user = authenticate(request, email=email, password=password)  # Pass request to authenticate
             if user is not None:
                 login(request, user)
-                return redirect('https://tranquil-otter-dd17ea.netlify.app/')
+                return redirect('https://yourinnerpeaceportal.netlify.app/')
             else:
                 messages.error(request, "Bad Credentials!")
                 return render(request, 'login.html')
